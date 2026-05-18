@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Contact | Dadapeer</title>
+
+
+    <!-- GOOGLE FONT -->
+
+    <link rel="preconnect"
+          href="https://fonts.googleapis.com">
+
+    <link rel="preconnect"
+          href="https://fonts.gstatic.com"
+          crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"
+          rel="stylesheet">
+
+
+    <!-- FONT AWESOME -->
+
+    <link rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+
+    <!-- CONTACT CSS -->
+
+    <link rel="stylesheet"
+          href="contact.css">
+
+</head>
+
+
+<body>
+
+    <!-- BACKGROUND GLOW -->
+
+    <div class="background-glow"></div>
+
+
+    <!-- MAIN CONTAINER -->
+
+    <div class="contact-container">
+
+
+        <!-- TOP BAR -->
+
+        <header class="top-bar">
+
+            <a href="index.html"
+               class="back-btn">
+
+               <i class="fa-solid fa-arrow-left"></i>
+
+               Back
+
+            </a>
+
+
+            <h1>
+                Contact Me
+            </h1>
+
+        </header>
+
+
+
+        <!-- CONTACT WRAPPER -->
+
+        <div class="contact-wrapper">
+
+
+            <!-- LEFT SIDE -->
+
+            <div class="contact-info">
+
+                <div class="contact-badge">
+                    Let's Connect
+                </div>
+
+                <h2>
+                    Build Something Amazing Together
+                </h2>
+
+                <p>
+                    Open for collaborations,
+                    internships,
+                    freelance opportunities,
+                    and innovative technology projects.
+                </p>
+
+
+
+                <!-- CONTACT DETAILS -->
+
+                <div class="contact-details">
+
+
+                    <div class="detail-box">
+
+                        <div class="detail-icon">
+                            <i class="fa-solid fa-envelope"></i>
+                        </div>
+
+                        <div>
+
+                            <h3>Email</h3>
+
+                            <span>
+                                dadapeer09012005@gmail.com
+                            </span>
+
+                        </div>
+
+                    </div>
+
+
+
+                    <div class="detail-box">
+
+                        <div class="detail-icon">
+                            <i class="fa-brands fa-github"></i>
+                        </div>
+
+                        <div>
+
+                            <h3>GitHub</h3>
+
+                            <span>
+                                github.com/Dadapeer-source
+                            </span>
+
+                        </div>
+
+                    </div>
+
+
+
+                    <div class="detail-box">
+
+                        <div class="detail-icon">
+                            <i class="fa-solid fa-location-dot"></i>
+                        </div>
+
+                        <div>
+
+                            <h3>Location</h3>
+
+                            <span>
+                                Karnataka, India
+                            </span>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- RIGHT SIDE -->
+
+            <div class="contact-card">
+
+
+                <h2>
+                    Send Message
+                </h2>
+
+
+                <form id="mailForm">
+
+
+                    <input type="email"
+                           id="fromEmail"
+                           placeholder="Your Email"
+                           required>
+
+
+                    <input type="text"
+                           id="subject"
+                           placeholder="Subject"
+                           required>
+
+
+                    <textarea id="message"
+                              rows="6"
+                              placeholder="Write your message..."
+                              required></textarea>
+
+
+                    <button type="submit">
+
+                        <i class="fa-solid fa-paper-plane"></i>
+
+                        Send Message
+
+                    </button>
+
+                </form>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+
+    <!-- EMAIL SCRIPT -->
+
+    <script>
+
+        const form =
+        document.getElementById('mailForm');
+
+        form.addEventListener('submit',
+        function(e){
+
+            e.preventDefault();
+
+            const from =
+            document.getElementById('fromEmail')
+            .value.trim();
+
+            const subject =
+            document.getElementById('subject')
+            .value.trim();
+
+            const message =
+            document.getElementById('message')
+            .value.trim();
+
+            if(!from.includes("@")){
+
+                alert(
+                "Please enter a valid email."
+                );
+
+                return;
+            }
+
+            const mailtoLink =
+            `mailto:dadapeer09012005@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent("From: " + from + "\n\n" + message)}`;
+
+            window.location.href = mailtoLink;
+
+            form.reset();
+        });
+
+    </script>
+
+</body>
+</html>
