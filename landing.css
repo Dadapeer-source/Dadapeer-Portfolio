@@ -507,3 +507,29 @@ nav a:active{
         flex-direction:column;
     }
 }
+
+/* Medium Icon */
+
+.social-icon.medium {
+
+    background: linear-gradient(
+        135deg,
+        #00ab6c,
+        #121212
+    );
+
+    color: white;
+
+    transition: 0.4s ease;
+}
+
+
+/* Hover */
+
+.social-icon.medium:hover {
+
+    transform: translateY(-8px) scale(1.1);
+
+    box-shadow:
+        0 10px 25px rgba(0, 171, 108, 0.4);
+}
