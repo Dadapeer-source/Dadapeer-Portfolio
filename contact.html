@@ -10,7 +10,6 @@
 
     <title>Contact | Dadapeer</title>
 
-
     <!-- GOOGLE FONT -->
 
     <link rel="preconnect"
@@ -23,12 +22,10 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"
           rel="stylesheet">
 
-
     <!-- FONT AWESOME -->
 
     <link rel="stylesheet"
-    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
     <!-- CONTACT CSS -->
 
@@ -37,18 +34,15 @@
 
 </head>
 
-
 <body>
 
     <!-- BACKGROUND GLOW -->
 
     <div class="background-glow"></div>
 
-
     <!-- MAIN CONTAINER -->
 
     <div class="contact-container">
-
 
         <!-- TOP BAR -->
 
@@ -57,12 +51,11 @@
             <a href="index.html"
                class="back-btn">
 
-               <i class="fa-solid fa-arrow-left"></i>
+                <i class="fa-solid fa-arrow-left"></i>
 
-               Back
+                Back
 
             </a>
-
 
             <h1>
                 Contact Me
@@ -70,94 +63,78 @@
 
         </header>
 
+        <!-- CONTACT CONTENT -->
 
-
-        <!-- CONTACT WRAPPER -->
-
-        <div class="contact-wrapper">
-
+        <div class="contact-content">
 
             <!-- LEFT SIDE -->
 
             <div class="contact-info">
-
-                <div class="contact-badge">
-                    Let's Connect
-                </div>
 
                 <h2>
                     Build Something Amazing Together
                 </h2>
 
                 <p>
-                    Open for collaborations,
-                    internships,
-                    freelance opportunities,
+                    Open for collaborations, internships, freelance opportunities,
                     and innovative technology projects.
                 </p>
 
+                <!-- EMAIL -->
 
+                <div class="info-card">
 
-                <!-- CONTACT DETAILS -->
+                    <div class="icon-box">
+                        <i class="fa-solid fa-envelope"></i>
+                    </div>
 
-                <div class="contact-details">
+                    <div>
 
+                        <h3>Email</h3>
 
-                    <div class="detail-box">
-
-                        <div class="detail-icon">
-                            <i class="fa-solid fa-envelope"></i>
-                        </div>
-
-                        <div>
-
-                            <h3>Email</h3>
-
-                            <span>
-                                dadapeer09012005@gmail.com
-                            </span>
-
-                        </div>
+                        <span>
+                            dadapeer09012005@gmail.com
+                        </span>
 
                     </div>
 
+                </div>
 
+                <!-- GITHUB -->
 
-                    <div class="detail-box">
+                <div class="info-card">
 
-                        <div class="detail-icon">
-                            <i class="fa-brands fa-github"></i>
-                        </div>
+                    <div class="icon-box">
+                        <i class="fa-brands fa-github"></i>
+                    </div>
 
-                        <div>
+                    <div>
 
-                            <h3>GitHub</h3>
+                        <h3>GitHub</h3>
 
-                            <span>
-                                github.com/Dadapeer-source
-                            </span>
-
-                        </div>
+                        <span>
+                            github.com/Dadapeer-source
+                        </span>
 
                     </div>
 
+                </div>
 
+                <!-- LOCATION -->
 
-                    <div class="detail-box">
+                <div class="info-card">
 
-                        <div class="detail-icon">
-                            <i class="fa-solid fa-location-dot"></i>
-                        </div>
+                    <div class="icon-box">
+                        <i class="fa-solid fa-location-dot"></i>
+                    </div>
 
-                        <div>
+                    <div>
 
-                            <h3>Location</h3>
+                        <h3>Location</h3>
 
-                            <span>
-                                Karnataka, India
-                            </span>
-
-                        </div>
+                        <span>
+                            Karnataka, India
+                        </span>
 
                     </div>
 
@@ -165,38 +142,30 @@
 
             </div>
 
-
-
             <!-- RIGHT SIDE -->
 
             <div class="contact-card">
-
 
                 <h2>
                     Send Message
                 </h2>
 
-
                 <form id="mailForm">
-
 
                     <input type="email"
                            id="fromEmail"
                            placeholder="Your Email"
                            required>
 
-
                     <input type="text"
                            id="subject"
                            placeholder="Subject"
                            required>
 
-
                     <textarea id="message"
                               rows="6"
                               placeholder="Write your message..."
                               required></textarea>
-
 
                     <button type="submit">
 
@@ -214,50 +183,56 @@
 
     </div>
 
+    <!-- EMAILJS -->
 
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
 
-    <!-- EMAIL SCRIPT -->
+<script>
 
-    <script>
+emailjs.init("CrN72MucBPdOw-ZFc");
 
-        const form =
-        document.getElementById('mailForm');
+const form = document.getElementById("mailForm");
 
-        form.addEventListener('submit',
-        function(e){
+form.addEventListener("submit", function(event) {
 
-            e.preventDefault();
+    event.preventDefault();
 
-            const from =
-            document.getElementById('fromEmail')
-            .value.trim();
+    const email = document.getElementById("fromEmail").value;
 
-            const subject =
-            document.getElementById('subject')
-            .value.trim();
+    const title = document.getElementById("subject").value;
 
-            const message =
-            document.getElementById('message')
-            .value.trim();
+    const message = document.getElementById("message").value;
 
-            if(!from.includes("@")){
+    emailjs.send(
+        "service_6kur9m7",
+        "template_ssud3oa",
+        {
+            email: email,
+            title: title,
+            message: message
+        }
+    )
 
-                alert(
-                "Please enter a valid email."
-                );
+    .then(function() {
 
-                return;
-            }
+        alert("✅ Message Sent Successfully!");
 
-            const mailtoLink =
-            `mailto:dadapeer09012005@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent("From: " + from + "\n\n" + message)}`;
+        form.reset();
 
-            window.location.href = mailtoLink;
+    })
 
-            form.reset();
-        });
+    .catch(function(error) {
 
-    </script>
+        alert("❌ Failed to Send Message");
+
+        console.log(error);
+
+    });
+
+});
+
+</script>
 
 </body>
+
 </html>
